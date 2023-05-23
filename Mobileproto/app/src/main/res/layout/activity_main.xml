@@ -17,13 +17,11 @@
             android:layout_width="224dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
-        <ImageButton
-            android:id="@+id/searchButton"
-            android:layout_width="0dp"
+        <Button
+            android:id="@+id/searchItemButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@android:drawable/ic_menu_search"
-            app:tint="@color/black" />
+            android:text="Search" />
 
 
     </LinearLayout>

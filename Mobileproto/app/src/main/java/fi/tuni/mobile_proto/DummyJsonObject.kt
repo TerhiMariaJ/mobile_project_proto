@@ -4,4 +4,4 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-data class DummyJsonObject(var results: MutableList<Users>? = null)
+data class DummyJsonObject(var users: MutableList<Person>? = null)
