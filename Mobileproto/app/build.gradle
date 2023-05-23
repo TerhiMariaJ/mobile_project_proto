@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace 'fi.tuni.mobile_proto'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "fi.tuni.mobile_proto"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -33,6 +33,7 @@ android {
 }
 
 dependencies {
+
 
     implementation 'com.fasterxml.jackson.core:jackson-core:2.14.2'
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.14.2'
