@@ -42,7 +42,13 @@ class MainActivity : AppCompatActivity() {
 
         adapter = ArrayAdapter<Person>(this, R.layout.item, R.id.myTextView, ArrayList())
         lv.adapter = adapter
+        lv.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
+            val user = adapter.getItem(position)
+            if(user != null){
+                removeUser(position, user)
+            }
 
+        }
     }
 
     override fun onResume() {
@@ -146,6 +152,7 @@ class MainActivity : AppCompatActivity() {
             if (response == HttpURLConnection.HTTP_OK) {
                 runOnUiThread {
                     adapter.add(user)
+                    Toast.makeText(this, "New user added", Toast.LENGTH_SHORT).show()
                 }
             } else {
                 runOnUiThread {
@@ -155,6 +162,28 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+    }
+
+    fun removeUser(position: Int, user: Person){
+        var urlPos = position + 1
+        val url = "https://dummyjson.com/users/$urlPos"
+        thread {
+            val conn = URL(url).openConnection() as HttpURLConnection
+            conn.requestMethod = "DELETE"
+            conn.setRequestProperty("Content-Type", "application/json")
+            conn.doOutput = true
+            val response = conn.responseCode
+            if (response == HttpURLConnection.HTTP_OK) {
+                runOnUiThread {
+                    adapter.remove(user)
+                    Toast.makeText(this, "User deleted", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                runOnUiThread {
+                    Toast.makeText(this, "Deleting failed", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
 
     fun searchUser(search: String){
