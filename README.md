@@ -5,4 +5,3 @@ May 2023
 - Chosen HTTP-client: The one provided by AndroidStudio
 - Chosen JSON-parsing tool: Jackson
 - Chosen method for UI: xml
-- Link to the screencast is found in the main repository!
